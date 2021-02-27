@@ -6,9 +6,8 @@ def swap_bits(x, i, j):
     if (x >> i & 1) != (x >> j & 1):
         bit_mask = 1 << i | 1 << j
         # create a new bit mask
-        x = x ^ bit_mask
-
-    # TODO - you fill in here.
+        x = x ^ bit_mask  # since we will be masking with 000001100 , xor with 0 bit doesn't change the output
+        
     return x
 
 
