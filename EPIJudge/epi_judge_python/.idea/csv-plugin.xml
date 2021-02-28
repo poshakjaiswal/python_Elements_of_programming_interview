@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/reverse_bits.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

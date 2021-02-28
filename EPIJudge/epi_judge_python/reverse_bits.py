@@ -14,7 +14,7 @@ def swap_bits(x, i, j):
     return x
 
 
-def reverse_bits1(x: int) -> int:
+def reverse_bits(x: int) -> int:
     # TODO - you fill in here.
     # reverse_bits_brute_force_by_swapping
     # keep swapping the bits
@@ -25,13 +25,15 @@ def reverse_bits1(x: int) -> int:
 
     while msb_position != lsb_position:
         swap_bits(x, msb_position, lsb_position)
+        msb_position += 1
+        lsb_position -= 1
 
     return x
 
 
-def reverse_bits(x: int) -> int:  # reverse bit using hashing
+def reverse_bits1(x: int) -> int:  # reverse bit using hashing
     mask_size = 2  # trying with 8 bit sample , by shifting just two bits
-    bit_mask = 96
+    bit_mask = 3
 
     # input-> 10010011 , 147
     # output should be -> 11001001 , 201
@@ -40,6 +42,10 @@ def reverse_bits(x: int) -> int:  # reverse bit using hashing
     PRECOMPUTED_REVERSE[2] = 1  # 1,0 -> 0,1
     PRECOMPUTED_REVERSE[3] = 3  # 1,1-> 1,1
 
+    # 1. (x & bit_mask ) -> islolates the last two bits LSB ,
+    # 2. We then Find the Reverse from the precomputed reverse
+    # 3. Now we bit shift this to 3 * masksize we had used
+
     return (PRECOMPUTED_REVERSE[x & bit_mask] << (3 * mask_size)
             | PRECOMPUTED_REVERSE[(x >> mask_size) & bit_mask] << (2 * mask_size)
             | PRECOMPUTED_REVERSE[(x >> (2 * mask_size)) & bit_mask] << mask_size
@@ -47,7 +53,7 @@ def reverse_bits(x: int) -> int:  # reverse bit using hashing
 
 
 if __name__ == '__main__':
-    print(reverse_bits(147))
-    # exit(
-    #     generic_test.generic_test_main('reverse_bits.py', 'reverse_bits.tsv',
-    #                                    reverse_bits))
+    # print(reverse_bits(147))
+    exit(
+        generic_test.generic_test_main('reverse_bits.py', 'reverse_bits.tsv',
+                                       reverse_bits))
