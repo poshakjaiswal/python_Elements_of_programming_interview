@@ -1,5 +1,7 @@
 from test_framework import generic_test
 
+# Revisit Later
+
 PRECOMPUTED_REVERSE = {}
 
 
@@ -52,7 +54,7 @@ def reverse_bits1(x: int) -> int:  # reverse bit using hashing
 
 
 if __name__ == '__main__':
-    # print(reverse_bits(147)) # should output 201
+    print(reverse_bits(147))  # should output 201
     exit(
         generic_test.generic_test_main('reverse_bits.py', 'reverse_bits.tsv',
                                        reverse_bits))
