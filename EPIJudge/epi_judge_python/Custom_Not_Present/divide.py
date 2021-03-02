@@ -1,7 +1,4 @@
-from test_framework import generic_test
-
-
-def multiply(x, y):
+def divide(x, y):
     def add(a, b):
         running_sum1, carryin, k, temp_a, temp_b = 0, 0, 1, a, b
         while temp_a or temp_b:
@@ -23,6 +20,5 @@ def multiply(x, y):
 
 
 if __name__ == '__main__':
-    exit(
-        generic_test.generic_test_main('primitive_multiply.py',
-                                       'primitive_multiply.tsv', multiply))
+    first, second = 13, 9
+    print(divide(first, second))
